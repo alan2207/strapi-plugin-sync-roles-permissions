@@ -1,0 +1,30 @@
+{
+  "name": "strapi-plugin-sync-roles-permissions",
+  "version": "0.1.0",
+  "description": "Store your user roles and permissions for later.",
+  "strapi": {
+    "name": "Sync Roles And Permissions",
+    "icon": "plug",
+    "description": "Store your user roles and permissions for later."
+  },
+  "dependencies": {
+    "styled-components": "^5.2.1"
+  },
+  "author": {
+    "name": "Alan Alickovic",
+    "email": "",
+    "url": ""
+  },
+  "maintainers": [
+    {
+      "name": "Alan Alickovic",
+      "email": "",
+      "url": ""
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

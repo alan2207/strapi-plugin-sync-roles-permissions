@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "handler": "sync-roles-permissions.index",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/roles",
+      "handler": "sync-roles-permissions.getRoles",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/roles",
+      "handler": "sync-roles-permissions.updateRoles",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
