@@ -12,7 +12,7 @@ import readFile from "../../utils/readFile";
 import { request } from "strapi-helper-plugin";
 
 import { Button, Padded } from "@buffetjs/core";
-import { Container, Block, P } from "../../styles";
+import { Container, Block, P, Sections } from "../../styles";
 
 const HomePage = () => {
   const [file, setFile] = React.useState(null);
@@ -55,44 +55,52 @@ const HomePage = () => {
   return (
     <Container top bottom left right>
       <h1>Sync Roles And Permissions</h1>
-      <P>Store your roles and permissions for later.</P>
+      <P>
+        Store user roles and permissions configuration as a JSON file and then
+        import and reuse it any time.
+      </P>
+      <Sections>
+        <Block style={{ flex: 1 }}>
+          <Padded>
+            <h3>Sync Roles And Permissions</h3>
+            <P>
+              Import and sync your current roles and permissions from a JSON
+              file.
+            </P>
+            <input
+              id="upload"
+              accept=".json"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file) {
+                  readFile(file, (value, fileName) => {
+                    setFile(value);
+                  });
+                } else {
+                  setFile(null);
+                }
+              }}
+              type="file"
+            />
 
-      <Block>
-        <Padded>
-          <h3>Update roles</h3>
-          <P>Update user roles and permissions from a JSON file.</P>
-
-          <input
-            id="upload"
-            accept=".json"
-            onChange={(e) => {
-              const file = e.target.files[0];
-              if (file) {
-                readFile(file, (value, fileName) => {
-                  setFile(value);
-                });
-              } else {
-                setFile(null);
-              }
-            }}
-            type="file"
-          />
-
-          <Button onClick={handleRolesUpdate} disabled={!file}>
-            Update Roles
-          </Button>
-        </Padded>
-      </Block>
-      <Block style={{ marginTop: "20px" }}>
-        <Padded size="lg" id="download">
-          <h3>Download roles</h3>
-          <P>
-            Get the current user roles and permissions and save them as a JSON
-            file.
-          </P>
-          <Button onClick={handleDownload}>Download Latest Roles</Button>
-        </Padded>
-      </Block>
+            <Button onClick={handleRolesUpdate} disabled={!file}>
+              Sync Roles And Permissions
+            </Button>
+          </Padded>
+        </Block>
+        <Block style={{ flex: 1 }}>
+          <Padded size="lg" id="download">
+            <h3>Export Roles And Permissions</h3>
+            <P>
+              Export your current roles and permissions configuration as a JSON
+              file.
+            </P>
+            <Button onClick={handleDownload}>
+              Export Roles And Permissions
+            </Button>
+          </Padded>
+        </Block>
+      </Sections>
     </Container>
   );
 };

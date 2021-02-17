@@ -60,8 +60,16 @@ export const Container = styled.div`
   }
 `;
 
+export const Sections = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 992px) {
+    flex-direction: row;
+  }
+`;
+
 export const P = styled.p`
-  max-width: 550px;
+  max-width: 768px;
   padding-top: 10px;
   padding-right: 30px;
   color: #5c5f66;
