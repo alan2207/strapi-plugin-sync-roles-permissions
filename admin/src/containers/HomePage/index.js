@@ -17,7 +17,6 @@ import { Container, Block, P, Sections } from "../../styles";
 const HomePage = () => {
   const [file, setFile] = React.useState(null);
 
-  // takes roles from a .json file and creates/updates roles in the db
   const handleRolesUpdate = async () => {
     try {
       strapi.lockApp();
@@ -34,7 +33,6 @@ const HomePage = () => {
     strapi.unlockApp();
   };
 
-  // takes roles from the db and downloads into a .json file
   const handleDownload = async () => {
     try {
       const roles = await request(`/${pluginId}/roles`);
@@ -46,7 +44,7 @@ const HomePage = () => {
         roles[role.name] = role;
         return roles;
       }, {});
-      downloadFile(file, "strapi-roles");
+      downloadFile(file, "strapi-roles-and-permissions");
     } catch (err) {
       strapi.notification.error(err.toString());
     }
