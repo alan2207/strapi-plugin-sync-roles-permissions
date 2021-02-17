@@ -32,9 +32,10 @@ module.exports = {
       return ctx.unauthorized("You must be admin to access this resource!");
     }
 
-    const plugins = await service.getPlugins();
-
-    const roles = await service.getRoles();
+    const [roles, plugins] = await Promise.all([
+      service.getRoles(),
+      service.getPlugins(),
+    ]);
 
     const rolesWithPermissions = await Promise.all(
       roles.map(async (role) => await service.getRole(role.id, plugins))
