@@ -44,7 +44,7 @@ module.exports = {
 
     await strapi.plugins["sync-roles-permissions"].services[
       "sync-roles-permissions"
-    ].updateRoles(roles);
+    ].updateRoles(roles, ctx);
 
     return { success: true };
   },

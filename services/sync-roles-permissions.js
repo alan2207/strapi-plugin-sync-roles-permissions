@@ -41,7 +41,7 @@ module.exports = {
     );
   },
 
-  updateRoles: async (roles) => {
+  updateRoles: async (roles, ctx) => {
     const service =
       strapi.plugins["users-permissions"].services.userspermissions;
 
@@ -54,7 +54,12 @@ module.exports = {
     ).then((values) => values.every(Boolean));
 
     if (!isValidJSON) {
-      return ctx.throw(400, "Please provide a valid JSON");
+      const errorMessage = "Please provide a valid JSON";
+      if (ctx) {
+        return ctx?.throw(400, errorMessage);
+      }
+
+      throw new Error(errorMessage);
     }
 
     await Promise.all(
@@ -71,5 +76,7 @@ module.exports = {
         }
       })
     );
+
+    return true;
   },
 };

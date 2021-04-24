@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-sync-roles-permissions",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Store user roles and permissions configuration as a JSON file and then import and reuse it any time.",
   "strapi": {
     "name": "Sync Roles And Permissions",
