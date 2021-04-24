@@ -18,6 +18,9 @@ const HomePage = () => {
   const [file, setFile] = React.useState(null);
 
   const handleRolesUpdate = async () => {
+    const confirmed = window.confirm("Are you sure?");
+
+    if (!confirmed) return;
     try {
       strapi.lockApp();
       await request(`/${pluginId}/roles`, {
