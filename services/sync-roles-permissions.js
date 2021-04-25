@@ -56,7 +56,7 @@ module.exports = {
     if (!isValidJSON) {
       const errorMessage = "Please provide a valid JSON";
       if (ctx) {
-        return ctx?.throw(400, errorMessage);
+        return ctx.throw(400, errorMessage);
       }
 
       throw new Error(errorMessage);
