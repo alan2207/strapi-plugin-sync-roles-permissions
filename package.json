@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-sync-roles-permissions",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Store user roles and permissions configuration as a JSON file and then import and reuse it any time.",
   "strapi": {
     "name": "Sync Roles And Permissions",
@@ -8,9 +8,9 @@
     "description": "Store user roles and permissions configuration as a JSON file and then import and reuse it any time."
   },
   "dependencies": {
-    "@buffetjs/core": "^3.3.4",
-    "strapi-utils": "^3.4.6",
-    "styled-components": "^5.2.1",
+    "@buffetjs/core": "^3.3.6",
+    "strapi-utils": "^3.6.5",
+    "styled-components": "^5.3.0",
     "yup": "^0.32.9"
   },
   "author": {
